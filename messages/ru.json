@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "title": "Jobber - Call center"
+  },
+  "errors": {
+    "404": {
+      "title": "Страница не найдена",
+      "description": "Запрошенный ресурс не найден"
+    }
+  },
+  "button": {
+    "returnToMain": "Вернуться на главную страницу"
+  }
+}

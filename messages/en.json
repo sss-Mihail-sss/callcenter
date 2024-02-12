@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "title": "Jobber - Call center"
+  },
+  "errors": {
+    "404": {
+      "title": "Page was not found",
+      "description": "Could not find requested resource"
+    }
+  },
+  "button": {
+    "returnToMain": "Return to the main page"
+  }
+}

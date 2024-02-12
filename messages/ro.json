@@ -1,0 +1,14 @@
+{
+  "meta": {
+    "title": "Jobber - Call center"
+  },
+  "errors": {
+    "404": {
+      "title": "Pagina nu a fost găsita",
+      "description": "Nu s-a putut găsi resursa solicitată"
+    }
+  },
+  "button": {
+    "returnToMain": "Întoarcere pe pagina principală"
+  }
+}
