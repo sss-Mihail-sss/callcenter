@@ -10,5 +10,16 @@
   },
   "button": {
     "returnToMain": "Întoarcere pe pagina principală"
+  },
+  "language": {
+    "en": "Engleză",
+    "ru": "Rusă",
+    "ro": "Română"
+  },
+  "sidebar": {
+    "all": "Toate",
+    "individuals": "Persoane fizice",
+    "legal": "Persoane juridice",
+    "jobs": "Job-uri"
   }
 }

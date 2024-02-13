@@ -1,11 +1,13 @@
 import { ReactNode } from 'react';
 import { Inter } from 'next/font/google';
-import { getTranslations, unstable_setRequestLocale } from 'next-intl/server';
-import { locales } from '@/config';
 import { cn } from '@/lib/utils';
 import Sidebar from '@/components/Sidebar';
 import Navbar from '@/components/Navbar';
 import Providers from '@/providers';
+import { Toaster } from '@/components/ui/sonner';
+import '@/app/styles.css';
+import ChangeTheme from '@/components/buttons/ChangeTheme';
+import ChangeLanguage from '@/components/buttons/ChangeLanguage';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -14,17 +16,9 @@ type Props = {
   params: { locale: string };
 };
 
-// export function generateStaticParams() {
-//   return locales.map((locale) => ({ locale }));
-// }
-
-export async function generateMetadata({
-  params: { locale },
-}: Omit<Props, 'children'>) {
-  const t = await getTranslations('meta');
-
+export async function generateMetadata() {
   return {
-    title: t('title'),
+    title: 'Jobber',
   };
 }
 
@@ -32,19 +26,24 @@ export default async function LocaleLayout({
   children,
   params: { locale },
 }: Props) {
-  unstable_setRequestLocale(locale);
-
   return (
     <html className="h-full" lang={locale}>
     <body className={cn(inter.className, 'flex')}>
-    <Providers>
-      <Sidebar locale={locale}/>
+    <Providers locale={locale}>
+      <Sidebar/>
       <div className="flex flex-col w-full">
-        <Navbar locale={locale}/>
+        <Navbar/>
         <main className="p-4">
           {children}
         </main>
       </div>
+
+      <div className="flex flex-col absolute rounded right-4 bottom-4">
+        <ChangeTheme className="rounded-t"/>
+        <ChangeLanguage className="rounded-b"/>
+      </div>
+
+      <Toaster/>
     </Providers>
     </body>
     </html>

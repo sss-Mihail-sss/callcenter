@@ -10,5 +10,16 @@
   },
   "button": {
     "returnToMain": "Return to the main page"
+  },
+  "language": {
+    "en": "English",
+    "ru": "Russian",
+    "ro": "Romanian"
+  },
+  "sidebar": {
+    "all": "All",
+    "individuals": "Individuals",
+    "legal": "Legal persons",
+    "jobs": "Jobs"
   }
 }

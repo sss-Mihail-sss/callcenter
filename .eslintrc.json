@@ -1,0 +1,23 @@
+{
+  "env": {
+    "node": true
+  },
+  "extends": [
+    "next",
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.spec.tsx"
+      ],
+      "rules": {
+        "import/no-extraneous-dependencies": "off"
+      }
+    }
+  ],
+  "rules": {
+    "react-hooks/exhaustive-deps": "off"
+  }
+}

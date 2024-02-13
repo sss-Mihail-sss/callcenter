@@ -4,7 +4,7 @@ import { RxHamburgerMenu } from 'react-icons/rx';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import { useSidebar } from '@/contexts/SidebarContext';
 
-export default function Navbar({ locale }: { locale: string }) {
+export default function Navbar() {
   const { isCollapsed, setIsCollapsed } = useSidebar();
 
   return (

@@ -1,16 +1,9 @@
-import Link from 'next/link';
-import { getTranslations } from 'next-intl/server';
+'use client';
 
-export default async function NotFound() {
-  const t = await getTranslations();
-
+export default function NotFound() {
   return (
     <div>
-      <h2>{t('errors.404.title')}.</h2>
-      <p>{t('errors.404.description')}.</p>
-      <Link href="/">
-        <button type="button">{t('button.returnToMain')}</button>
-      </Link>
+      <h2>4000</h2>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import { useTranslations } from 'next-intl';
+import { toast } from 'sonner';
 import { useEffect } from 'react';
 
 type Props = {
@@ -9,15 +9,15 @@ type Props = {
 };
 
 export default function Error({ error, reset }: Props) {
-  const t = useTranslations('errors');
-
   useEffect(() => {
-    console.error(error);
-  }, [error]);
+    toast(error.name, {
+      description: error.message
+    });
+
+    console.log(11);
+  }, []);
 
   return (
-    <div>
-      error
-    </div>
+    <div>{error.message}</div>
   );
 }
