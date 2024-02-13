@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
-import { useScopedI18n, useCurrentLocale } from '@/locales/client';
+import { useCurrentLocale, useScopedI18n } from '@/locales/client';
 
 import {
   PiArchiveBoxLight,
@@ -12,11 +12,12 @@ import {
   PiFolderLight,
   PiFolderMinusLight,
   PiFolderNotchOpenLight,
+  PiFoldersLight,
   PiSquaresFourLight,
   PiSuitcaseLight,
   PiUserPlusLight,
 } from 'react-icons/pi';
-import SidebarLink from '@/components/SidebarLink';
+import SidebarLink from '@/components/sidebarLink';
 import { useSidebar } from '@/contexts/SidebarContext';
 
 export default function Sidebar() {
@@ -26,10 +27,11 @@ export default function Sidebar() {
 
   return (
     <aside
-      className={cn('group/sidebar shadow border-r border-gray-400 transition-[width] flex-shrink-0', isCollapsed ? 'hover:w-64 w-14' : 'w-64')}>
+      className={cn('group/sidebar shadow border-r border-gray-400 transition-[width] flex-shrink-0 w-0 overflow-hidden', isCollapsed ? 'md:hover:w-64 md:w-14' : 'w-64')}>
       <Link href={`/${locale}`}
         className="block shadow px-2 py-3 h-16 border-b border-gray-400 overflow-hidden">
-        <Image src="/logo.webp" alt="logo image" sizes="100vw" width={140} height={0} className="h-full min-w-[140px]" priority={true}/>
+        <Image src="/logo.webp" alt="logo image" sizes="100vw" width={140} height={0} className="h-full min-w-[140px]"
+          priority={true}/>
       </Link>
 
       <ul className="flex flex-col p-2 font-medium space-y-1.5">
@@ -50,7 +52,11 @@ export default function Sidebar() {
 
         <li className="items-center">
           <SidebarLink href={`/${locale}/jobs`} text={scopedT('jobs')}
-            badge={13} icon={<PiSuitcaseLight size={24}/>}>
+            icon={<PiSuitcaseLight size={24}/>}>
+
+            <SidebarLink className={cn(isCollapsed ? 'pl-2.5' : 'pl-6')} href={`/${locale}/jobs/all`}
+              text="Toate"
+              badge={1273} icon={<PiFoldersLight size={20}/>}/>
 
             <SidebarLink className={isCollapsed ? 'pl-2.5' : 'pl-6'} href={`/${locale}/jobs/active`} text="Active"
               badge={967} icon={<PiFolderNotchOpenLight size={20}/>}/>
@@ -64,15 +70,15 @@ export default function Sidebar() {
             <SidebarLink className={isCollapsed ? 'pl-2.5' : 'pl-6'} href={`/${locale}/jobs/remove`} text="Șterse"
               badge={5} icon={<PiFolderMinusLight size={20}/>}/>
 
-            <SidebarLink className={isCollapsed ? 'pl-2.5' : 'pl-6'} href={`/j${locale}/obs/reported`} text="Raportate"
+            <SidebarLink className={isCollapsed ? 'pl-2.5' : 'pl-6'} href={`/${locale}/jobs/reported`} text="Raportate"
               badge={121} icon={<PiFlagLight size={20}/>}/>
           </SidebarLink>
         </li>
 
-        <li className="items-center">
-          <SidebarLink href={`/${locale}/jobs/reported`} text="Job-uri raportate" badge={121}
-            icon={<PiFlagLight size={24}/>}/>
-        </li>
+        {/*<li className="items-center">*/}
+        {/*  <SidebarLink href={`/${locale}/jobs/reported`} text="Job-uri raportate" badge={121}*/}
+        {/*    icon={<PiFlagLight size={24}/>}/>*/}
+        {/*</li>*/}
       </ul>
     </aside>
   );

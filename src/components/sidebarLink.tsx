@@ -4,7 +4,7 @@ import { useSidebar } from '@/contexts/SidebarContext';
 import { cn } from '@/lib/utils';
 import { PiCaretDownLight } from 'react-icons/pi';
 import Link from 'next/link';
-import Badge from '@/components/Badge';
+import Badge from '@/components/badge';
 
 export default function SidebarLink({ text, href, icon = '', badge = '', strict = false, children, className = '' }: {
   text: string,
@@ -29,7 +29,7 @@ export default function SidebarLink({ text, href, icon = '', badge = '', strict 
 
   if (children) {
     return (
-      <div>
+      <div className={className}>
         <button onClick={() => setIsOpen(!isOpen)}
           className={cn('w-full flex items-center p-2 rounded truncate', isActive(href, strict) ? 'bg-purple-50' : 'group hover:bg-purple-50')}>
           <span className="min-w-8">{icon}</span>

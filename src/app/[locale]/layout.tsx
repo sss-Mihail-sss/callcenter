@@ -1,8 +1,8 @@
 import { ReactNode } from 'react';
 import { Inter } from 'next/font/google';
 import { cn } from '@/lib/utils';
-import Sidebar from '@/components/Sidebar';
-import Navbar from '@/components/Navbar';
+import Sidebar from '@/components/sidebar';
+import Navbar from '@/components/navbar';
 import Providers from '@/providers';
 import { Toaster } from '@/components/ui/sonner';
 import '@/app/styles.css';
@@ -43,7 +43,7 @@ export default async function LocaleLayout({
         <ChangeLanguage className="rounded-b"/>
       </div>
 
-      <Toaster/>
+      <Toaster richColors  />
     </Providers>
     </body>
     </html>
